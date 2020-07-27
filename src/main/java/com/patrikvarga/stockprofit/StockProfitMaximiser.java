@@ -16,6 +16,10 @@ public class StockProfitMaximiser {
      * @return the best profit
      */
     public static int getMaxProfit(int[] stockPrices) {
+        if (stockPrices.length < 2) {
+            throw new IllegalArgumentException("Single element array is not allowed");
+        }
+
         int minPrice = Integer.MAX_VALUE;
         int minIndex = 0;
         int maxPrice = 0;

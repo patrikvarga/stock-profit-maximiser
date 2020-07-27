@@ -32,4 +32,11 @@ public class StockProfitMaximiserTest {
         int[] stockPrices = {10, 7, 5, 8, 11, 1};
         assertEquals(6, getMaxProfit(stockPrices));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void youMayNotBuyAndSellInTheSameStep() {
+        int[] stockPrices = {1};
+        getMaxProfit(stockPrices);
+    }
+
 }
