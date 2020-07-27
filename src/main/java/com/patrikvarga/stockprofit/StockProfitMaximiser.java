@@ -1,7 +1,5 @@
 package com.patrikvarga.stockprofit;
 
-import static java.lang.Integer.max;
-
 /**
  * Takes an array of stock prices and returns the best profit could have been made from 1 purchase and 1 sale of 1
  * stock.
@@ -21,14 +19,18 @@ public class StockProfitMaximiser {
         int minPrice = Integer.MAX_VALUE;
         int minIndex = 0;
         int maxPrice = 0;
+        int maxIndex = Integer.MAX_VALUE;
 
         for (int i = 0; i < stockPrices.length; i++) {
             int currentPrice = stockPrices[i];
-            if (currentPrice < minPrice) {
+            if (currentPrice < minPrice && i < maxIndex) {
                 minPrice = currentPrice;
                 minIndex = i;
             }
-            maxPrice = max(currentPrice, maxPrice);
+            if (currentPrice > maxPrice && i > minIndex) {
+                maxPrice = currentPrice;
+                maxIndex = i;
+            }
         }
 
         return maxPrice - minPrice;

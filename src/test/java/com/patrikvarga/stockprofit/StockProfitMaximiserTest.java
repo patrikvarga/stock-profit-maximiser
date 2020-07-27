@@ -27,4 +27,9 @@ public class StockProfitMaximiserTest {
         assertEquals(6, getMaxProfit(stockPrices));
     }
 
+    @Test
+    public void youMustSellAfterYouBuy() {
+        int[] stockPrices = {10, 7, 5, 8, 11, 1};
+        assertEquals(6, getMaxProfit(stockPrices));
+    }
 }
