@@ -27,6 +27,9 @@ public class StockProfitMaximiser {
 
         for (int i = 0; i < stockPrices.length; i++) {
             int currentPrice = stockPrices[i];
+            if (currentPrice < 1) {
+                throw new IllegalArgumentException("Only positive prices are supported");
+            }
             if (currentPrice < minPrice && i < maxIndex) {
                 minPrice = currentPrice;
                 minIndex = i;

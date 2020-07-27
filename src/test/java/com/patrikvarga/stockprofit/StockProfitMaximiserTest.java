@@ -51,4 +51,15 @@ public class StockProfitMaximiserTest {
         assertEquals(0, getMaxProfit(stockPrices));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void priceCannotBeNegative() {
+        int[] stockPrices = {1, 2, 3, -4};
+        assertEquals(0, getMaxProfit(stockPrices));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void priceCannotBeZero() {
+        int[] stockPrices = {1, 2, 3, 0};
+        assertEquals(0, getMaxProfit(stockPrices));
+    }
 }
