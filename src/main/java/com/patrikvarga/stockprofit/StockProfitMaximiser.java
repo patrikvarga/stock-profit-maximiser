@@ -16,9 +16,7 @@ public class StockProfitMaximiser {
      * @return the best profit
      */
     public static int getMaxProfit(int[] stockPrices) {
-        if (stockPrices.length < 2) {
-            throw new IllegalArgumentException("Single element array is not allowed");
-        }
+        validateSeries(stockPrices);
 
         int minPrice = Integer.MAX_VALUE;
         int minIndex = 0;
@@ -27,9 +25,8 @@ public class StockProfitMaximiser {
 
         for (int i = 0; i < stockPrices.length; i++) {
             int currentPrice = stockPrices[i];
-            if (currentPrice < 1) {
-                throw new IllegalArgumentException("Only positive prices are supported");
-            }
+            validatePrice(currentPrice);
+
             if (currentPrice < minPrice && i < maxIndex) {
                 minPrice = currentPrice;
                 minIndex = i;
@@ -41,6 +38,18 @@ public class StockProfitMaximiser {
         }
 
         return maxPrice - minPrice;
+    }
+
+    private static void validatePrice(int currentPrice) throws IllegalArgumentException {
+        if (currentPrice < 1) {
+            throw new IllegalArgumentException("Only positive prices are supported");
+        }
+    }
+
+    private static void validateSeries(int[] stockPrices) throws IllegalArgumentException {
+        if (stockPrices.length < 2) {
+            throw new IllegalArgumentException("Single element array is not allowed");
+        }
     }
 
 }
