@@ -39,4 +39,16 @@ public class StockProfitMaximiserTest {
         getMaxProfit(stockPrices);
     }
 
+    @Test
+    public void handleTwoElements() {
+        int[] stockPrices = {1, 21};
+        assertEquals(20, getMaxProfit(stockPrices));
+    }
+
+    @Test
+    public void handleConstantPrices() {
+        int[] stockPrices = {2, 2, 2, 2, 2, 2, 2};
+        assertEquals(0, getMaxProfit(stockPrices));
+    }
+
 }
