@@ -48,7 +48,7 @@ public class StockProfitMaximiser {
 
     private static void validateSeries(int[] stockPrices) throws IllegalArgumentException {
         if (stockPrices.length < 2) {
-            throw new IllegalArgumentException("Single element array is not allowed");
+            throw new IllegalArgumentException("Minimum two elements are needed");
         }
     }
 
